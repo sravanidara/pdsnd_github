@@ -163,13 +163,31 @@ def trip_duration_stats(df):
     start_time = time.time()
 
     # TO DO: display total travel time
-    print("Total duration is : ", df['Trip Duration'].sum())
+    tot_travel_time = df['Trip Duration'].sum()
+    print("Total duration is : ")
+    convert_time(tot_travel_time)
 
     # TO DO: display mean travel time
-    print("Average duration is : ",df['Trip Duration'].mean())
+    avg_travel_time = int(df['Trip Duration'].mean())
+    print("Average duration is : ")
+    convert_time(avg_travel_time)
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
+
+
+def convert_time(travel_time):
+    """converts seconds into days, hours, minutes and seconds format."""
+
+    days = travel_time // (24 * 3600)
+    travel_time = travel_time % (24 * 3600)
+    hours = travel_time // 3600
+    travel_time = travel_time % 3600
+    minutes = travel_time // 60
+    travel_time = travel_time % 60
+    seconds = travel_time
+    print("{} days, {} hours, {} minutes, {} seconds".format(days, hours, minutes, seconds))
+    
 
 
 def user_stats(df, city):
