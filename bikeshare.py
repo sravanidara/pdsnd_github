@@ -186,9 +186,9 @@ def user_stats(df, city):
         print("Counts of Gender : \n", df.groupby(['Gender']).size())
 
         # TO DO: Display earliest, most recent, and most common year of birth
-        print("Earliest year of birth is : ", df['Birth Year'].min())
-        print("Most recent year of birth is : ", df['Birth Year'].max())
-        print("Most Common year of birth is : ", df['Birth Year'].mode()[0])
+        print("Earliest year of birth is : ", int(df['Birth Year'].min()))
+        print("Most recent year of birth is : ", int(df['Birth Year'].max()))
+        print("Most Common year of birth is : ", int(df['Birth Year'].mode()[0]))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
